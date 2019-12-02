@@ -6,7 +6,7 @@ This tool is under development. This tool is intended to help users and admins o
 * .NET Framework
 * EWS Managed API
 
-## OAuth 2-.0 - How to
+## OAuth 2.0 - How to
 
 To be able to use Oauth 2.0, you'll need to register the application in Azure. To do so, follow these steps:
 
