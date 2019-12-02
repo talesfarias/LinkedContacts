@@ -25,7 +25,9 @@ In Redirect URI section, make sure you select **"Public client/native (mobile & 
 
 Now you should be in the Application's overview page, copy both **Application (client)  ID** and **Directory (tenant) ID** to the LinkedContacts settings.
 
-Run **LinkedContacts.exe**, in the menu, select **Options** -> **Settings**.
+**6**. Run **LinkedContacts.exe** and in the menu select **Options** -> **Settings**.
+
+Check the checkbox "Use OAuth 2.0" and filling the ID's you got from previous step.
 
 ![app registration - linkedcontacts](https://user-images.githubusercontent.com/1156257/69988639-f078f700-1539-11ea-9286-adba4293bb7d.png)
 
