@@ -1,6 +1,10 @@
 # LinkedContacts
 This tool is under development. This tool is intended to help users and admins out there to identify Linked Contacts for a given user with an Exchange mailbox.
 
+## Requirements
+
+* [.NET Framework version 4.5+](https://dotnet.microsoft.com/download/dotnet-framework)
+
 ## OAuth 2.0 - How to
 
 To be able to use Oauth 2.0, you'll need to register the application in Azure. To do so, follow these steps:
