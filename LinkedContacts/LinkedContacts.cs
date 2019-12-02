@@ -65,7 +65,7 @@ namespace LinkedContacts
             Log.CreateLog("Performing redirection URL validation.", false);
             bool result = false;
             Uri redirectionUri = new Uri(redirectionUrl);
-            //Log.CreateLog(redirectionUrl, false);
+            Log.CreateLog(redirectionUrl, false);
             // Validate the contents of the redirection URL. In this simple validation
             // callback, the redirection URL is considered valid if it is using HTTPS
             // to encrypt the authentication credentials. 
@@ -393,11 +393,6 @@ namespace LinkedContacts
             }
         }
 
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
         private void MenuClearResults_Click(object sender, EventArgs e)
         {
             if (lvContacts.Visible)
@@ -456,11 +451,6 @@ namespace LinkedContacts
             }
         }
 
-        private void lvContacts_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void actionsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             //Validating if settings are not empty, otherwise connect button will be greyed out
@@ -499,7 +489,7 @@ namespace LinkedContacts
 
         private void tcPages_Selected(object sender, TabControlEventArgs e)
         {
-            if (tcPages.SelectedTab.Text == "TreeView")
+            if (tcPages.SelectedTab.Tag.ToString() == "Tree" & tvContacts.Nodes.Count > 0)
                 btnExpandNodes.Visible = true;
             else
                 btnExpandNodes.Visible = false;

@@ -209,7 +209,6 @@ namespace LinkedContacts
             this.lvContacts.UseCompatibleStateImageBehavior = false;
             this.lvContacts.View = System.Windows.Forms.View.Details;
             this.lvContacts.Visible = false;
-            this.lvContacts.SelectedIndexChanged += new System.EventHandler(this.lvContacts_SelectedIndexChanged);
             // 
             // chDisplayName
             // 
@@ -288,7 +287,6 @@ namespace LinkedContacts
             this.pUserInformation.Name = "pUserInformation";
             this.pUserInformation.Size = new System.Drawing.Size(1261, 35);
             this.pUserInformation.TabIndex = 5;
-            this.pUserInformation.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // btnExpandNodes
             // 
@@ -348,6 +346,7 @@ namespace LinkedContacts
             this.tcPages.Size = new System.Drawing.Size(1261, 873);
             this.tcPages.SizeMode = System.Windows.Forms.TabSizeMode.FillToRight;
             this.tcPages.TabIndex = 7;
+            this.tcPages.Tag = "";
             this.tcPages.Selected += new System.Windows.Forms.TabControlEventHandler(this.tcPages_Selected);
             // 
             // tabPage1
@@ -358,6 +357,7 @@ namespace LinkedContacts
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage1.Size = new System.Drawing.Size(1253, 837);
             this.tabPage1.TabIndex = 0;
+            this.tabPage1.Tag = "Table";
             this.tabPage1.Text = "TableView";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
@@ -369,6 +369,7 @@ namespace LinkedContacts
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage2.Size = new System.Drawing.Size(1253, 837);
             this.tabPage2.TabIndex = 1;
+            this.tabPage2.Tag = "Tree";
             this.tabPage2.Text = "TreeView";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
