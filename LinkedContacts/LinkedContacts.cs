@@ -235,14 +235,15 @@ namespace LinkedContacts
                 {
                     Log.CreateLog("OAuth 2.0 will be used.", false);
                     AuthenticationResult OAuthResult = await DoOAuthAsync();
-                    Log.CreateLog("Session details:" +Environment.NewLine + $"Username: {OAuthResult.Account.Username}" + Environment.NewLine +
+                    Log.CreateLog("Session details:" + Environment.NewLine + $"Username: {OAuthResult.Account.Username}" + Environment.NewLine +
                         $"Token Expires: {OAuthResult.ExpiresOn.ToLocalTime()}" + Environment.NewLine, false);
                     NewConnection.Credentials = new OAuthCredentials(OAuthResult.AccessToken);
                 }
                 else
                 {
                     //Getting credentials from the user's settings.
-                    NewConnection.Credentials = new WebCredentials(userPrincipalName, userPassword);
+                    //Use UPN if provided, else use the given SMTP address.
+                    NewConnection.Credentials  = !string.IsNullOrEmpty(userPrincipalName) ? new WebCredentials(userPrincipalName, userPassword) : new WebCredentials(userEmailAddress, userPassword);
                 }
 
                 //Performing the check before the autod call.
@@ -454,8 +455,7 @@ namespace LinkedContacts
         private void actionsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             //Validating if settings are not empty, otherwise connect button will be greyed out
-            if (!string.IsNullOrEmpty(Settings.Default["UserPrincipalName"].ToString())
-                && !string.IsNullOrEmpty(Settings.Default["EmailAddress"].ToString())
+            if (!string.IsNullOrEmpty(Settings.Default["EmailAddress"].ToString())
                     && !string.IsNullOrEmpty(Settings.Default["Password"].ToString())
                     || Boolean.Parse(Settings.Default["UseOAuth"].ToString()))
             {

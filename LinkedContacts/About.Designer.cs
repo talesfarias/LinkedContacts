@@ -70,7 +70,7 @@
             this.lblAbout.Size = new System.Drawing.Size(364, 97);
             this.lblAbout.TabIndex = 2;
             this.lblAbout.Text = "This tool helps you to identify Linked Contacts for a given Exchange mailbox.\r\n\r\n" +
-    "Version 1.0";
+    "Version 0.1.0";
             this.lblAbout.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // picAbout

@@ -30,6 +30,11 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AppSettings));
             this.GBSettings = new System.Windows.Forms.GroupBox();
+            this.gbAppRegistration = new System.Windows.Forms.GroupBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.tbTenant = new System.Windows.Forms.TextBox();
+            this.tbClientId = new System.Windows.Forms.TextBox();
             this.ckbOAuth = new System.Windows.Forms.CheckBox();
             this.btnResetSettings = new System.Windows.Forms.Button();
             this.ckbShowLinked = new System.Windows.Forms.CheckBox();
@@ -46,14 +51,9 @@
             this.lblPassword = new System.Windows.Forms.Label();
             this.lblEmail = new System.Windows.Forms.Label();
             this.folderBrowser = new System.Windows.Forms.FolderBrowserDialog();
-            this.gbAppRegistration = new System.Windows.Forms.GroupBox();
-            this.tbClientId = new System.Windows.Forms.TextBox();
-            this.tbTenant = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
             this.GBSettings.SuspendLayout();
-            this.groupBox1.SuspendLayout();
             this.gbAppRegistration.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // GBSettings
@@ -78,6 +78,57 @@
             this.GBSettings.Size = new System.Drawing.Size(564, 627);
             this.GBSettings.TabIndex = 0;
             this.GBSettings.TabStop = false;
+            // 
+            // gbAppRegistration
+            // 
+            this.gbAppRegistration.Controls.Add(this.label2);
+            this.gbAppRegistration.Controls.Add(this.label1);
+            this.gbAppRegistration.Controls.Add(this.tbTenant);
+            this.gbAppRegistration.Controls.Add(this.tbClientId);
+            this.gbAppRegistration.Enabled = false;
+            this.gbAppRegistration.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gbAppRegistration.Location = new System.Drawing.Point(16, 289);
+            this.gbAppRegistration.Name = "gbAppRegistration";
+            this.gbAppRegistration.Size = new System.Drawing.Size(529, 120);
+            this.gbAppRegistration.TabIndex = 15;
+            this.gbAppRegistration.TabStop = false;
+            this.gbAppRegistration.Text = "App Registration";
+            // 
+            // label2
+            // 
+            this.label2.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(7, 84);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(80, 23);
+            this.label2.TabIndex = 3;
+            this.label2.Text = "Tenant ID";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // label1
+            // 
+            this.label1.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(7, 39);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(80, 23);
+            this.label1.TabIndex = 2;
+            this.label1.Text = "Client ID";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // tbTenant
+            // 
+            this.tbTenant.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbTenant.Location = new System.Drawing.Point(93, 82);
+            this.tbTenant.Name = "tbTenant";
+            this.tbTenant.Size = new System.Drawing.Size(392, 25);
+            this.tbTenant.TabIndex = 1;
+            // 
+            // tbClientId
+            // 
+            this.tbClientId.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbClientId.Location = new System.Drawing.Point(93, 37);
+            this.tbClientId.Name = "tbClientId";
+            this.tbClientId.Size = new System.Drawing.Size(392, 25);
+            this.tbClientId.TabIndex = 0;
             // 
             // ckbOAuth
             // 
@@ -256,59 +307,6 @@
             this.folderBrowser.Description = "\"Select the location to save the logs\"";
             this.folderBrowser.ShowNewFolderButton = false;
             // 
-            // gbAppRegistration
-            // 
-            this.gbAppRegistration.Controls.Add(this.label2);
-            this.gbAppRegistration.Controls.Add(this.label1);
-            this.gbAppRegistration.Controls.Add(this.tbTenant);
-            this.gbAppRegistration.Controls.Add(this.tbClientId);
-            this.gbAppRegistration.Enabled = false;
-            this.gbAppRegistration.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gbAppRegistration.Location = new System.Drawing.Point(16, 289);
-            this.gbAppRegistration.Name = "gbAppRegistration";
-            this.gbAppRegistration.Size = new System.Drawing.Size(529, 120);
-            this.gbAppRegistration.TabIndex = 15;
-            this.gbAppRegistration.TabStop = false;
-            this.gbAppRegistration.Text = "App Registration";
-            // 
-            // tbClientId
-            // 
-            this.tbClientId.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbClientId.Location = new System.Drawing.Point(93, 37);
-            this.tbClientId.Name = "tbClientId";
-            this.tbClientId.Size = new System.Drawing.Size(392, 25);
-            this.tbClientId.TabIndex = 0;
-            // 
-            // tbTenant
-            // 
-            this.tbTenant.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbTenant.Location = new System.Drawing.Point(93, 82);
-            this.tbTenant.Name = "tbTenant";
-            this.tbTenant.Size = new System.Drawing.Size(392, 25);
-            this.tbTenant.TabIndex = 1;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(21, 39);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(60, 17);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "ClientId ";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(21, 84);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(51, 17);
-            this.label2.TabIndex = 3;
-            this.label2.Text = "Tenant";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
             // AppSettings
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -327,10 +325,10 @@
             this.Load += new System.EventHandler(this.Settings_Load);
             this.GBSettings.ResumeLayout(false);
             this.GBSettings.PerformLayout();
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
             this.gbAppRegistration.ResumeLayout(false);
             this.gbAppRegistration.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
 
         }
