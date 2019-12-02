@@ -17,14 +17,16 @@ namespace LinkedContacts
             InitializeComponent();
         }
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
+        private void About_Load(object sender, EventArgs e)
         {
-
+            linkLabelGit.Links.Add(0,33, "https://github.com/talesfarias/LinkedContacts");
+            linkLabelGit.LinkClicked += new LinkLabelLinkClickedEventHandler(linkLabelGit_LinkClicked);
         }
 
-        private void picAbout_Click(object sender, EventArgs e)
+        private void linkLabelGit_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-
+            linkLabelGit.LinkVisited = true;
+            System.Diagnostics.Process.Start("https://github.com/talesfarias/LinkedContacts");
         }
     }
 }
