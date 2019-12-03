@@ -46,10 +46,11 @@ Basic information about all the contacts will be shown in the TableView, whereas
 
 #### Table View:
 
-![runningToolResults](https://user-images.githubusercontent.com/1156257/70059757-3b961700-15d9-11ea-92b5-a188cf89ca42.png)
+
+![linkedcontacts-tableview](https://user-images.githubusercontent.com/1156257/70069823-591fac80-15ea-11ea-9da3-a243b84aa9fe.png)
 
 #### Tree View:
 
-![runningToolTreeView](https://user-images.githubusercontent.com/1156257/70059277-67fd6380-15d8-11ea-9e51-e8489dcc55a3.png)
+![linkedcontacts-treeview](https://user-images.githubusercontent.com/1156257/70069824-59b84300-15ea-11ea-981a-8a87f9dbced1.png)
 
 
