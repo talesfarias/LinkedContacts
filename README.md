@@ -40,3 +40,16 @@ Save the settings and you are ready to go.
 **2.** Run **LinkedContacts.exe** and in the menu select **Actions** -> **Fetch Results**.
 
 ![fetch results](https://user-images.githubusercontent.com/1156257/70035615-18547300-15ab-11ea-9378-378006c5fda7.png)
+
+**3.** All contacts will be listed both in TableView and TreeView. 
+Basic information about all the contacts will be shown in the TableView, whereas the TreeView will only show the linked contacts and its links:
+
+#### Table View:
+
+![runningToolResults](https://user-images.githubusercontent.com/1156257/70059757-3b961700-15d9-11ea-92b5-a188cf89ca42.png)
+
+#### Tree View:
+
+![runningToolTreeView](https://user-images.githubusercontent.com/1156257/70059277-67fd6380-15d8-11ea-9e51-e8489dcc55a3.png)
+
+
