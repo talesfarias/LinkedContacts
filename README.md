@@ -9,7 +9,7 @@ This tool is under development. This tool is intended to help users and admins o
 
 To be able to use Oauth 2.0, you'll need to register the application in Azure. To do so, follow these steps:
 
-**1**. Sign in to the **Azure portal** using either a work or school account or a personal Microsoft account.
+**1**. Sign in to the [Azure Portal](https://portal.azure.com/) using either a work or school account or a personal Microsoft account.
 
 **2**. If your account gives you access to more than one tenant, select your account in the top right corner, and set your portal session to the Azure AD tenant that you want.
 
