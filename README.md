@@ -41,8 +41,8 @@ Save the settings and you are ready to go.
 
 ![fetch results](https://user-images.githubusercontent.com/1156257/70035615-18547300-15ab-11ea-9378-378006c5fda7.png)
 
-**3.** All contacts will be listed both in TableView and TreeView. 
-Basic information about all the contacts will be shown in the TableView, whereas the TreeView will only show the linked contacts and its links:
+**3.** Contacts will be split into 2 separate tabs. 
+Basic information about all the contacts will be shown in the "All Contacts" tab, whereas the "Linked Contacts" tab will only show the linked contacts and its links:
 
 #### All contacts Tab:
 
