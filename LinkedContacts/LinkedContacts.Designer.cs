@@ -237,7 +237,7 @@ namespace LinkedContacts
             // chConvId
             // 
             this.chConvId.Text = "ID";
-            this.chConvId.Width = 100;
+            this.chConvId.Width = 0;
             // 
             // lblError
             // 
