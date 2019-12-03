@@ -98,18 +98,6 @@ namespace LinkedContacts.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("False")]
-        public bool ShowLinkedOnly {
-            get {
-                return ((bool)(this["ShowLinkedOnly"]));
-            }
-            set {
-                this["ShowLinkedOnly"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("False")]
         public bool UseOAuth {
             get {
                 return ((bool)(this["UseOAuth"]));

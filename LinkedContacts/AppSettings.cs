@@ -28,7 +28,6 @@ namespace LinkedContacts
             Settings.Default["LogsLocation"] = tbLocation.Text;
             Settings.Default["DirectConnection"] = ckbDirectConnection.Checked;
             Settings.Default["LoggingEnabled"] = ckbLogging.Checked;
-            Settings.Default["ShowLinkedOnly"] = ckbShowLinked.Checked;
             Settings.Default["UseOAuth"] = ckbOAuth.Checked;
             Settings.Default.Save();
             Configuration config = ConfigurationManager.OpenExeConfiguration(Application.ExecutablePath);
@@ -69,7 +68,6 @@ namespace LinkedContacts
 
             ckbDirectConnection.Checked = Boolean.Parse(Settings.Default["DirectConnection"].ToString());
             ckbLogging.Checked = Boolean.Parse(Settings.Default["LoggingEnabled"].ToString());
-            ckbShowLinked.Checked = Boolean.Parse(Settings.Default["ShowLinkedOnly"].ToString());
             ckbOAuth.Checked = Boolean.Parse(Settings.Default["UseOAuth"].ToString());
 
             if (!string.IsNullOrEmpty(Settings.Default["LogsLocation"].ToString()))
@@ -87,8 +85,9 @@ namespace LinkedContacts
             tbEmail.Clear();
             tbPassword.Clear();
             ckbDirectConnection.Checked = false;
-            ckbShowLinked.Checked = false;
             ckbLogging.Checked = false;
+            tbClientId.Clear();
+            tbTenant.Clear();
             tbLocation.Clear();
         }
 

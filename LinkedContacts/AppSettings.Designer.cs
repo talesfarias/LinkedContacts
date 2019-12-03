@@ -37,7 +37,6 @@
             this.tbClientId = new System.Windows.Forms.TextBox();
             this.ckbOAuth = new System.Windows.Forms.CheckBox();
             this.btnResetSettings = new System.Windows.Forms.Button();
-            this.ckbShowLinked = new System.Windows.Forms.CheckBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.tbLocation = new System.Windows.Forms.TextBox();
             this.ckbLogging = new System.Windows.Forms.CheckBox();
@@ -61,7 +60,6 @@
             this.GBSettings.Controls.Add(this.gbAppRegistration);
             this.GBSettings.Controls.Add(this.ckbOAuth);
             this.GBSettings.Controls.Add(this.btnResetSettings);
-            this.GBSettings.Controls.Add(this.ckbShowLinked);
             this.GBSettings.Controls.Add(this.groupBox1);
             this.GBSettings.Controls.Add(this.ckbDirectConnection);
             this.GBSettings.Controls.Add(this.btSave);
@@ -87,7 +85,7 @@
             this.gbAppRegistration.Controls.Add(this.tbClientId);
             this.gbAppRegistration.Enabled = false;
             this.gbAppRegistration.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gbAppRegistration.Location = new System.Drawing.Point(16, 289);
+            this.gbAppRegistration.Location = new System.Drawing.Point(16, 268);
             this.gbAppRegistration.Name = "gbAppRegistration";
             this.gbAppRegistration.Size = new System.Drawing.Size(529, 120);
             this.gbAppRegistration.TabIndex = 15;
@@ -134,7 +132,7 @@
             // 
             this.ckbOAuth.AutoSize = true;
             this.ckbOAuth.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ckbOAuth.Location = new System.Drawing.Point(16, 257);
+            this.ckbOAuth.Location = new System.Drawing.Point(16, 223);
             this.ckbOAuth.Name = "ckbOAuth";
             this.ckbOAuth.Size = new System.Drawing.Size(125, 21);
             this.ckbOAuth.TabIndex = 14;
@@ -146,7 +144,7 @@
             // 
             this.btnResetSettings.AutoSize = true;
             this.btnResetSettings.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnResetSettings.Location = new System.Drawing.Point(16, 540);
+            this.btnResetSettings.Location = new System.Drawing.Point(16, 519);
             this.btnResetSettings.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnResetSettings.Name = "btnResetSettings";
             this.btnResetSettings.Size = new System.Drawing.Size(152, 33);
@@ -155,25 +153,13 @@
             this.btnResetSettings.UseVisualStyleBackColor = true;
             this.btnResetSettings.Click += new System.EventHandler(this.btnResetSettings_Click);
             // 
-            // ckbShowLinked
-            // 
-            this.ckbShowLinked.AutoSize = true;
-            this.ckbShowLinked.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ckbShowLinked.Location = new System.Drawing.Point(16, 222);
-            this.ckbShowLinked.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.ckbShowLinked.Name = "ckbShowLinked";
-            this.ckbShowLinked.Size = new System.Drawing.Size(198, 21);
-            this.ckbShowLinked.TabIndex = 12;
-            this.ckbShowLinked.Text = "Show linked contacts only";
-            this.ckbShowLinked.UseVisualStyleBackColor = true;
-            // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.tbLocation);
             this.groupBox1.Controls.Add(this.ckbLogging);
             this.groupBox1.Controls.Add(this.btnLoggingLocation);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(16, 416);
+            this.groupBox1.Location = new System.Drawing.Point(16, 395);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -232,7 +218,7 @@
             // 
             this.btSave.AutoSize = true;
             this.btSave.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btSave.Location = new System.Drawing.Point(275, 583);
+            this.btSave.Location = new System.Drawing.Point(275, 562);
             this.btSave.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btSave.Name = "btSave";
             this.btSave.Size = new System.Drawing.Size(75, 33);
@@ -349,7 +335,6 @@
         public System.Windows.Forms.CheckBox ckbLogging;
         public System.Windows.Forms.CheckBox ckbDirectConnection;
         public System.Windows.Forms.TextBox tbLocation;
-        public System.Windows.Forms.CheckBox ckbShowLinked;
         private System.Windows.Forms.Button btnResetSettings;
         private System.Windows.Forms.CheckBox ckbOAuth;
         private System.Windows.Forms.GroupBox gbAppRegistration;

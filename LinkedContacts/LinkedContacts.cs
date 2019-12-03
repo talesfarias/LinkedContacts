@@ -176,10 +176,6 @@ namespace LinkedContacts
             }
         }
 
-        private void LinkedContacts_Load(object sender, EventArgs e)
-        {
-        }
-
         private void Settings_Click(object sender, EventArgs e)
         {
             //Calling AppSettings form.
@@ -212,7 +208,6 @@ namespace LinkedContacts
                 string userPassword = Settings.Default["Password"].ToString();
                 bool shouldUseOAuth = Boolean.Parse(Settings.Default["UseOAuth"].ToString());
                 bool directConnectionToEXO = Boolean.Parse(Settings.Default["DirectConnection"].ToString());
-                bool showLinkedOnly = Boolean.Parse(Settings.Default["ShowLinkedOnly"].ToString());
                 bool loggingEnabled = Boolean.Parse(Settings.Default["LoggingEnabled"].ToString());
 
                 //Instantiating my log object
@@ -305,81 +300,65 @@ namespace LinkedContacts
                         Contact contact = item as Contact;
                         contact.TryGetProperty(contactLinkedProp, out isLinked);
                         contact.TryGetProperty(contactLinkedGALProp, out isGalLinked);
-                        if ((showLinkedOnly && isLinked) || !showLinkedOnly)
+                        //Adding the DisplayName to the first column.
+                        if (!string.IsNullOrEmpty(contact.DisplayName))
                         {
-                            //Adding the DisplayName to the first column.
-                            if (!string.IsNullOrEmpty(contact.DisplayName))
-                            {
-                                lvContacts.Items.Add(contact.DisplayName);
-                            }
-                            else
-                            {
-                                lvContacts.Items.Add("");
-                            }
-                            //Adding the First Email address to the second column.
-                            if (contact.EmailAddresses.TryGetValue(EmailAddressKey.EmailAddress1, out email))
-                            {
-                                if ((isGalLinked == 1) && (email.ToString().Substring(0, 3) == "/o="))
-                                {
-                                    Log.CreateLog("Contact " + contact.DisplayName + " is linked to GAL. EmailAddress: " + email, false);
-                                    contact.TryGetProperty(contactLinkedGALSMTPProp, out objGalSmtpAddress);
-                                    string[] SMTP = (string[])objGalSmtpAddress;
-                                    lvContacts.Items[i].SubItems.Add(SMTP[0]);
-                                }
-                                else
-                                {
-                                    lvContacts.Items[i].SubItems.Add(email.ToString());
-                                }
-                            }
-                            else
-                            {
-                                lvContacts.Items[i].SubItems.Add("");
-                            }
-                            //Adding the Phone Number to the third column.
-                            if (contact.PhoneNumbers.TryGetValue(PhoneNumberKey.BusinessPhone, out strPhone))
-                            {
-                                lvContacts.Items[i].SubItems.Add(strPhone);
-                            }
-                            else
-                            {
-                                lvContacts.Items[i].SubItems.Add("");
-                            }
-                            //Adding the LinkedContact value to the column.
-                            lvContacts.Items[i].SubItems.Add(isLinked.ToString());
-                            //Adding GAL Link value to the column.
-                            lvContacts.Items[i].SubItems.Add(isGalLinked.ToString());
-                            //Testing convID
-                            lvContacts.Items[i].SubItems.Add(contact.ConversationId);
-                            //Adding the ID of the item to the tag property of the listviewitem
-                            lvContacts.Items[i].Tag = contact.ConversationId; //replace with "Id" for the item when I need to update
-                            //tvContacts.Nodes.Add(contact.DisplayName);
-                            //tvContacts.Nodes[i].Nodes.Add(contact.DisplayName);
-                            i++;
-                            pbLoading.Value++;
+                            lvContacts.Items.Add(contact.DisplayName);
                         }
                         else
                         {
-                            Log.CreateLog("Skipping contact " + contact.DisplayName + ". It's not linked.", false);
-                            pbLoading.Value++;
+                            lvContacts.Items.Add("");
                         }
-
-                    }
-                    //Controlling the visible components for the user
-                    //to make sure we display some useful information while getting information.
-                    lvContacts.Visible = true;
-                    lblConnection.Text = "Successfully fetched results for";
-                    lblConnectedTo.Text = "(" + userEmailAddress + ")";
-                    lblConnection.ForeColor = Color.Green;
-                    lblTotalResults.Visible = true;
-                    if (showLinkedOnly)
-                    {
-                        lblTotalResults.Text = "Total of linked contacts: " + i;
-                    }
-                    else
-                    {
-                        lblTotalResults.Text = "Total of contacts: " + numItems;
+                        //Adding the First Email address to the second column.
+                        if (contact.EmailAddresses.TryGetValue(EmailAddressKey.EmailAddress1, out email))
+                        {
+                            if ((isGalLinked == 1) && (email.ToString().Substring(0, 3) == "/o="))
+                            {
+                                Log.CreateLog("Contact " + contact.DisplayName + " is linked to GAL. EmailAddress: " + email, false);
+                                contact.TryGetProperty(contactLinkedGALSMTPProp, out objGalSmtpAddress);
+                                string[] SMTP = (string[])objGalSmtpAddress;
+                                lvContacts.Items[i].SubItems.Add(SMTP[0]);
+                            }
+                            else
+                            {
+                                lvContacts.Items[i].SubItems.Add(email.ToString());
+                            }
+                        }
+                        else
+                        {
+                            lvContacts.Items[i].SubItems.Add("");
+                        }
+                        //Adding the Phone Number to the third column.
+                        if (contact.PhoneNumbers.TryGetValue(PhoneNumberKey.BusinessPhone, out strPhone))
+                        {
+                            lvContacts.Items[i].SubItems.Add(strPhone);
+                        }
+                        else
+                        {
+                            lvContacts.Items[i].SubItems.Add("");
+                        }
+                        //Adding the LinkedContact value to the column.
+                        lvContacts.Items[i].SubItems.Add(isLinked.ToString());
+                        //Adding GAL Link value to the column.
+                        lvContacts.Items[i].SubItems.Add(Convert.ToBoolean(isGalLinked).ToString());
+                        //Testing convID
+                        lvContacts.Items[i].SubItems.Add(contact.ConversationId);
+                        //Adding the ID of the item to the tag property of the listviewitem
+                        lvContacts.Items[i].Tag = contact.ConversationId; //replace with "Id" for the item when I need to update
+                        //tvContacts.Nodes.Add(contact.DisplayName);
+                        //tvContacts.Nodes[i].Nodes.Add(contact.DisplayName);
+                        i++;
+                        pbLoading.Value++;
                     }
                 }
+                //Controlling the visible components for the user
+                //to make sure we display some useful information after getting the contacts.
+                lvContacts.Visible = true;
+                lblConnection.Text = "Successfully fetched results for";
+                lblConnectedTo.Text = "(" + userEmailAddress + ")";
+                lblConnection.ForeColor = Color.Green;
+                lblTotalResults.Visible = true;
+                lblTotalResults.Text = "Total of contacts: " + numItems;
                 //Build up the treeview
                 DoTreeView();
             }
@@ -490,9 +469,16 @@ namespace LinkedContacts
         private void tcPages_Selected(object sender, TabControlEventArgs e)
         {
             if (tcPages.SelectedTab.Tag.ToString() == "Tree" & tvContacts.Nodes.Count > 0)
+            {
                 btnExpandNodes.Visible = true;
+                lblTotalResults.Text = "Total of linked contacts: " + tvContacts.Nodes.Count;
+            }
+
             else
+            {
                 btnExpandNodes.Visible = false;
+                lblTotalResults.Text = "Total of contacts: " + lvContacts.Items.Count;
+            }
         }
 
         private void btnExpandNodes_Click(object sender, EventArgs e)

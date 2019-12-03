@@ -223,16 +223,17 @@ namespace LinkedContacts
             // chPhone
             // 
             this.chPhone.Text = "Business Phone";
-            this.chPhone.Width = 100;
+            this.chPhone.Width = 140;
             // 
             // chLinked
             // 
             this.chLinked.Text = "Linked";
+            this.chLinked.Width = 0;
             // 
             // chGalLinked
             // 
-            this.chGalLinked.Text = "GAL";
-            this.chGalLinked.Width = 40;
+            this.chGalLinked.Text = "Linked to GAL";
+            this.chGalLinked.Width = 140;
             // 
             // chConvId
             // 
@@ -358,7 +359,7 @@ namespace LinkedContacts
             this.tabPage1.Size = new System.Drawing.Size(1253, 837);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Tag = "Table";
-            this.tabPage1.Text = "TableView";
+            this.tabPage1.Text = "All Contacts";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
             // tabPage2
@@ -370,7 +371,7 @@ namespace LinkedContacts
             this.tabPage2.Size = new System.Drawing.Size(1253, 837);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Tag = "Tree";
-            this.tabPage2.Text = "TreeView";
+            this.tabPage2.Text = "Linked Contacts";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
             // LinkedContacts
@@ -392,7 +393,6 @@ namespace LinkedContacts
             this.Name = "LinkedContacts";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "LinkedContacts";
-            this.Load += new System.EventHandler(this.LinkedContacts_Load);
             this.mainMenu.ResumeLayout(false);
             this.mainMenu.PerformLayout();
             this.StatusBar.ResumeLayout(false);
