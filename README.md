@@ -44,13 +44,12 @@ Save the settings and you are ready to go.
 **3.** All contacts will be listed both in TableView and TreeView. 
 Basic information about all the contacts will be shown in the TableView, whereas the TreeView will only show the linked contacts and its links:
 
-#### Table View:
+#### All contacts Tab:
 
+![allcontacts](https://user-images.githubusercontent.com/1156257/70088219-baa54280-160d-11ea-8eb4-a4ede6510ef8.png)
 
-![linkedcontacts-tableview](https://user-images.githubusercontent.com/1156257/70069823-591fac80-15ea-11ea-9da3-a243b84aa9fe.png)
+#### Linked Contacts Tab:
 
-#### Tree View:
-
-![linkedcontacts-treeview](https://user-images.githubusercontent.com/1156257/70069824-59b84300-15ea-11ea-981a-8a87f9dbced1.png)
+![treeview](https://user-images.githubusercontent.com/1156257/70088218-baa54280-160d-11ea-88b3-f292e6995268.png)
 
 
