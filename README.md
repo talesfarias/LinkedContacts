@@ -32,3 +32,11 @@ Check the checkbox "Use OAuth 2.0" and fill in the ID's you got from previous st
 ![app registration - linkedcontacts](https://user-images.githubusercontent.com/1156257/69988639-f078f700-1539-11ea-9286-adba4293bb7d.png)
 
 Save the settings and you are ready to go.
+
+## Checking contacts
+
+**1.** Make sure you have set either the credentials for Basic auth or performed OAuth 2.0 registration.
+
+**2.** Run **LinkedContacts.exe** and in the menu select **Actions** -> **Fetch Results**.
+
+![fetch results](https://user-images.githubusercontent.com/1156257/70035615-18547300-15ab-11ea-9378-378006c5fda7.png)
