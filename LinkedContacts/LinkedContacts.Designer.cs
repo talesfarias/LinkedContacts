@@ -49,7 +49,6 @@ namespace LinkedContacts
             this.chPhone = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.chLinked = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.chGalLinked = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.chConvId = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.lblError = new System.Windows.Forms.Label();
             this.tvContacts = new System.Windows.Forms.TreeView();
             this.ilPicsList = new System.Windows.Forms.ImageList(this.components);
@@ -62,6 +61,8 @@ namespace LinkedContacts
             this.tcPages = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.chContactId = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.bgWorker = new System.ComponentModel.BackgroundWorker();
             this.mainMenu.SuspendLayout();
             this.StatusBar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorMessage)).BeginInit();
@@ -192,7 +193,7 @@ namespace LinkedContacts
             this.chPhone,
             this.chLinked,
             this.chGalLinked,
-            this.chConvId});
+            this.chContactId});
             this.lvContacts.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lvContacts.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lvContacts.ForeColor = System.Drawing.Color.Black;
@@ -234,11 +235,6 @@ namespace LinkedContacts
             // 
             this.chGalLinked.Text = "Linked to GAL";
             this.chGalLinked.Width = 140;
-            // 
-            // chConvId
-            // 
-            this.chConvId.Text = "ID";
-            this.chConvId.Width = 0;
             // 
             // lblError
             // 
@@ -374,6 +370,11 @@ namespace LinkedContacts
             this.tabPage2.Text = "Linked Contacts";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
+            // chContactId
+            // 
+            this.chContactId.Text = "ContactID";
+            this.chContactId.Width = 0;
+            // 
             // LinkedContacts
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
@@ -435,13 +436,14 @@ namespace LinkedContacts
         private System.Windows.Forms.ToolStripMenuItem MenuClearResults;
         private System.Windows.Forms.ToolStripMenuItem MenuExit;
         private System.Windows.Forms.Button btnExpandNodes;
-        private System.Windows.Forms.ColumnHeader chConvId;
         private System.Windows.Forms.ColumnHeader chGalLinked;
         private System.Windows.Forms.TreeView tvContacts;
         private System.Windows.Forms.TabControl tcPages;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.ImageList ilPicsList;
+        private System.Windows.Forms.ColumnHeader chContactId;
+        private System.ComponentModel.BackgroundWorker bgWorker;
     }
 }
 

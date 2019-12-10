@@ -258,8 +258,8 @@ namespace LinkedContacts
                 // Get the number of items in the Contacts folder.
                 ContactsFolder contactsfolder = ContactsFolder.Bind(NewConnection, WellKnownFolderName.Contacts);
 
-                // Set the number of items to the number of items in the Contacts folder or 500(testing with 500 for now), whichever is smaller.
-                int numItems = contactsfolder.TotalCount < 500 ? contactsfolder.TotalCount : 500;
+                // Set the number of items to the number of items in the Contacts folder or 1000(testing with 1000 for now), whichever is smaller.
+                int numItems = contactsfolder.TotalCount < 1000 ? contactsfolder.TotalCount : 1000;
 
                 //Commonly used Property sets - Contact GUID
                 //At this point I'm specifying the extended props that I need to get in the FindItem request
@@ -341,12 +341,11 @@ namespace LinkedContacts
                         lvContacts.Items[i].SubItems.Add(isLinked.ToString());
                         //Adding GAL Link value to the column.
                         lvContacts.Items[i].SubItems.Add(Convert.ToBoolean(isGalLinked).ToString());
-                        //Testing convID
-                        lvContacts.Items[i].SubItems.Add(contact.ConversationId);
+                        //Adding contact ID to test later for duplicates.
+                        lvContacts.Items[i].ToolTipText = contact.Id.ToString();
+                        lvContacts.Items[i].SubItems.Add(contact.Id.ToString());
                         //Adding the ID of the item to the tag property of the listviewitem
-                        lvContacts.Items[i].Tag = contact.ConversationId; //replace with "Id" for the item when I need to update
-                        //tvContacts.Nodes.Add(contact.DisplayName);
-                        //tvContacts.Nodes[i].Nodes.Add(contact.DisplayName);
+                        lvContacts.Items[i].Tag = contact.ConversationId; 
                         i++;
                         pbLoading.Value++;
                     }
@@ -394,21 +393,18 @@ namespace LinkedContacts
                 int i = 0;
                 bool isNodeCompleted = false;
                 TreeNode[] tnNode;
-                //This was a previous feature to allow creation of the treeview for selected items only.
-                //ListView.CheckedListViewItemCollection checkedItems = this.lvContacts.CheckedItems;
-                ListView.ListViewItemCollection allItems = this.lvContacts.Items;
-                //foreach (ListViewItem item in checkedItems)
-                foreach (ListViewItem item in allItems)
+                foreach (ListViewItem item in lvContacts.Items)
                 {
-                    //CreateLog("Selected items: " + item + " Id: " + item.Tag);
                     foreach (ListViewItem list in lvContacts.Items)
                     {
 
-                        if ((item.Tag.ToString() == list.Tag.ToString()) && (item.Text.ToString() != list.Text.ToString()))
+                        if ((item.Tag.ToString() == list.Tag.ToString()) && (item.Text != list.Text))
                         {
                             tnNode = tvContacts.Nodes.Find(item.Text, true);
                             if (tnNode.Length == 0)
+                            {
                                 tvContacts.Nodes.Add(item.Text);
+                            }
                             tvContacts.Nodes[i].Nodes.Add(item.Text, list.Text, 3, 3);
                             isNodeCompleted = true;
                         }
@@ -468,13 +464,13 @@ namespace LinkedContacts
 
         private void tcPages_Selected(object sender, TabControlEventArgs e)
         {
+            lblTotalResults.Text = "";
             if (tcPages.SelectedTab.Tag.ToString() == "Tree" & tvContacts.Nodes.Count > 0)
             {
                 btnExpandNodes.Visible = true;
                 lblTotalResults.Text = "Total of linked contacts: " + tvContacts.Nodes.Count;
             }
-
-            else
+            else if (tcPages.SelectedTab.Tag.ToString() == "Table" & lvContacts.Items.Count > 0)
             {
                 btnExpandNodes.Visible = false;
                 lblTotalResults.Text = "Total of contacts: " + lvContacts.Items.Count;
@@ -485,12 +481,19 @@ namespace LinkedContacts
         {
             if (btnExpandNodes.Text == "Expand all")
             {
+                //Suspeding automatic refresh as the UI was flashing while expanding all nodes.
+                tvContacts.BeginUpdate();
+                //Expanding all nodes.
                 tvContacts.ExpandAll();
+                //Enabling the automatic refresh again.
+                tvContacts.EndUpdate();
                 btnExpandNodes.Text = "Collapse all";
             }
             else
             {
+                tvContacts.BeginUpdate();
                 tvContacts.CollapseAll();
+                tvContacts.EndUpdate();
                 btnExpandNodes.Text = "Expand all";
             }
         }
